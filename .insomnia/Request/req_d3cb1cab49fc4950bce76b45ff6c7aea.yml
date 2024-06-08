@@ -1,0 +1,66 @@
+_id: req_d3cb1cab49fc4950bce76b45ff6c7aea
+type: Request
+parentId: fld_ac70a7b157084c9096ade9ec9bdf82c3
+modified: 1717806424535
+created: 1717806424535
+url: "{{ _.base_url }}/control-planes"
+name: List Control Planes
+description: ""
+method: GET
+body: {}
+preRequestScript: ""
+afterResponseScript: ""
+parameters:
+  - name: page[size]
+    disabled: true
+    value: "10"
+  - name: page[number]
+    disabled: true
+    value: "1"
+  - name: filter[name][eq]
+    disabled: true
+    value: test
+  - name: filter[name]
+    disabled: true
+    value: test
+  - name: filter[name][contains]
+    disabled: true
+    value: test
+  - name: filter[name][neq]
+    disabled: true
+    value: test
+  - name: filter[id][eq]
+    disabled: true
+    value: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+  - name: filter[id]
+    disabled: true
+    value: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+  - name: filter[id][oeq]
+    disabled: true
+    value: some-value,some-other-value
+  - name: filter[cluster_type][eq]
+    disabled: true
+    value: string
+  - name: filter[cluster_type]
+    disabled: true
+    value: CLUSTER_TYPE_CONTROL_PLANE
+  - name: filter[cluster_type][neq]
+    disabled: true
+    value: test
+  - name: labels
+    disabled: true
+    value: key:value,existCheck
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.bearerToken }}"
+  prefix: ""
+metaSortKey: -1717806424535
+isPrivate: false
+pathParameters: []
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

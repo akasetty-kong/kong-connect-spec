@@ -1,0 +1,15 @@
+_id: env_20c3fe8aa2934db4b4dd1c469895278a
+type: Environment
+parentId: env_90001e653f82f9e33284b6b7b964f4f6df6d374a
+modified: 1717806424532
+created: 1717806424532
+name: OpenAPI env us.api.konghq.com
+data:
+  scheme: https
+  base_path: /v2
+  host: us.api.konghq.com
+  bearerToken: bearerToken
+dataPropertyOrder: null
+color: null
+isPrivate: false
+metaSortKey: 1717806424532
