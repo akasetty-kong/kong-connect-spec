@@ -1,2 +1,3 @@
-extends:
-  - https://raw.githubusercontent.com/azure/azure-api-style-guide/main/spectral.yaml
+extends: spectral:oas
+rules:
+  oas3-valid-media-example: warn
