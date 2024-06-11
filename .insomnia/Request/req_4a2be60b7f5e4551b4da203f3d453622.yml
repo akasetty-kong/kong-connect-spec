@@ -1,0 +1,33 @@
+_id: req_4a2be60b7f5e4551b4da203f3d453622
+type: Request
+parentId: fld_0c22598001634d78a0deba070ca83e01
+modified: 1717845548772
+created: 1717806950583
+url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships"
+name: List Control Plane Group Memberships
+description: ""
+method: GET
+body: {}
+preRequestScript: ""
+afterResponseScript: ""
+parameters:
+  - disabled: true
+    name: page[size]
+    value: "10"
+  - disabled: true
+    name: page[number]
+    value: "1"
+headers: []
+authentication:
+  prefix: ""
+  token: "{{ _.bearerToken }}"
+  type: bearer
+metaSortKey: -1717806950583
+isPrivate: false
+pathParameters: []
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,27 @@
+_id: req_2154bac04b934493b11bb76b1d552752
+type: Request
+parentId: fld_ac70a7b157084c9096ade9ec9bdf82c3
+modified: 1717845548772
+created: 1717806424537
+url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+name: Delete Control Plane
+description: ""
+method: DELETE
+body: {}
+preRequestScript: ""
+afterResponseScript: ""
+parameters: []
+headers: []
+authentication:
+  prefix: ""
+  token: "{{ _.bearerToken }}"
+  type: bearer
+metaSortKey: -1717806424537
+isPrivate: false
+pathParameters: []
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

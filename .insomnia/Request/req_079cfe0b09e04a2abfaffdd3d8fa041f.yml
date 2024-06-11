@@ -1,0 +1,49 @@
+_id: req_079cfe0b09e04a2abfaffdd3d8fa041f
+type: Request
+parentId: fld_ac70a7b157084c9096ade9ec9bdf82c3
+modified: 1717845548771
+created: 1717806424536
+url: "{{ _.base_url }}/control-planes"
+name: Create Control Plane
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "name": "Test Control Plane",
+      "description": "A test control plane for exploration.",
+      "cluster_type": "CLUSTER_TYPE_CONTROL_PLANE",
+      "auth_type": "pinned_client_certs",
+      "cloud_gateway": true,
+      "proxy_urls": [
+        {
+          "host": "example.com",
+          "port": 443,
+          "protocol": "https"
+        }
+      ],
+      "labels": {
+        "env": "test"
+      }
+    }
+preRequestScript: ""
+afterResponseScript: ""
+parameters: []
+headers:
+  - disabled: false
+    name: Content-Type
+    value: application/json
+authentication:
+  prefix: ""
+  token: "{{ _.bearerToken }}"
+  type: bearer
+metaSortKey: -1717806424536
+isPrivate: false
+pathParameters: []
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

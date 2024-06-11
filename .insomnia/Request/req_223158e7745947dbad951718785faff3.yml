@@ -1,0 +1,39 @@
+_id: req_223158e7745947dbad951718785faff3
+type: Request
+parentId: fld_6dd4947441724f54b887bbbb20a2daaa
+modified: 1717845548772
+created: 1717806424538
+url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships/remove"
+name: Remove Control Plane Group Members
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "members": [
+        {
+          "id": "string"
+        }
+      ]
+    }
+preRequestScript: ""
+afterResponseScript: ""
+parameters: []
+headers:
+  - disabled: false
+    name: Content-Type
+    value: application/json
+authentication:
+  prefix: ""
+  token: "{{ _.bearerToken }}"
+  type: bearer
+metaSortKey: -1717806424538
+isPrivate: false
+pathParameters: []
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

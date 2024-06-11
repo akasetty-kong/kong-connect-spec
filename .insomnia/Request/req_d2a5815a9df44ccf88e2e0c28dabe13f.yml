@@ -1,0 +1,27 @@
+_id: req_d2a5815a9df44ccf88e2e0c28dabe13f
+type: Request
+parentId: fld_7238173d8ff6403ea8e52f714dfd6de8
+modified: 1717845548777
+created: 1717817978834
+url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+name: Fetch Control Plane
+description: ""
+method: GET
+body: {}
+preRequestScript: ""
+afterResponseScript: ""
+parameters: []
+headers: []
+authentication:
+  prefix: ""
+  token: "{{ _.bearerToken }}"
+  type: bearer
+metaSortKey: -1717817978834
+isPrivate: false
+pathParameters: []
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,47 @@
+_id: req_0dd1a160b0024aa18e15c90cd97ca741
+type: Request
+parentId: fld_7238173d8ff6403ea8e52f714dfd6de8
+modified: 1717845548771
+created: 1717817978834
+url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+name: Update Control Plane
+description: ""
+method: PATCH
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "name": "Test Control Plane",
+      "description": "A test control plane for exploration.",
+      "auth_type": "pinned_client_certs",
+      "proxy_urls": [
+        {
+          "host": "example.com",
+          "port": 443,
+          "protocol": "https"
+        }
+      ],
+      "labels": {
+        "env": "test"
+      }
+    }
+preRequestScript: ""
+afterResponseScript: ""
+parameters: []
+headers:
+  - disabled: false
+    name: Content-Type
+    value: application/json
+authentication:
+  prefix: ""
+  token: "{{ _.bearerToken }}"
+  type: bearer
+metaSortKey: -1717817978834
+isPrivate: false
+pathParameters: []
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
