@@ -1185,6 +1185,12 @@ collection:
     scripts:
       afterResponse: ""
       preRequest: ""
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_90001e653f82f9e33284b6b7b964f4f6df6d374a
+    created: 1748653093688
+    modified: 1748653093688
 environments:
   name: Base Environment
   meta:
