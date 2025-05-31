@@ -1,0 +1,2856 @@
+type: spec.insomnia.rest/5.0
+name: Kong-Control-Spec
+meta:
+  id: wrk_72a23d6b2b84494cb5bc783aa4ef43fb
+  created: 1717804687210
+  modified: 1717804687210
+  description: ""
+collection:
+  - name: Control Planes
+    meta:
+      id: fld_ac70a7b157084c9096ade9ec9bdf82c3
+      created: 1717806424534
+      modified: 1717845548770
+      sortKey: -1717806424534
+      description: ""
+    children:
+      - url: "{{ _.base_url }}/control-planes"
+        name: List Control Planes
+        meta:
+          id: req_d3cb1cab49fc4950bce76b45ff6c7aea
+          created: 1717806424535
+          modified: 1717845548778
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424535
+        method: GET
+        parameters:
+          - disabled: true
+            name: page[size]
+            value: "10"
+          - disabled: true
+            name: page[number]
+            value: "1"
+          - disabled: true
+            name: filter[name][eq]
+            value: test
+          - disabled: true
+            name: filter[name]
+            value: test
+          - disabled: true
+            name: filter[name][contains]
+            value: test
+          - disabled: true
+            name: filter[name][neq]
+            value: test
+          - disabled: true
+            name: filter[id][eq]
+            value: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+          - disabled: true
+            name: filter[id]
+            value: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+          - disabled: true
+            name: filter[id][oeq]
+            value: some-value,some-other-value
+          - disabled: true
+            name: filter[cluster_type][eq]
+            value: string
+          - disabled: true
+            name: filter[cluster_type]
+            value: CLUSTER_TYPE_CONTROL_PLANE
+          - disabled: true
+            name: filter[cluster_type][neq]
+            value: test
+          - disabled: true
+            name: labels
+            value: key:value,existCheck
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes"
+        name: Create Control Plane
+        meta:
+          id: req_079cfe0b09e04a2abfaffdd3d8fa041f
+          created: 1717806424536
+          modified: 1717845548771
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424536
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Test Control Plane",
+              "description": "A test control plane for exploration.",
+              "cluster_type": "CLUSTER_TYPE_CONTROL_PLANE",
+              "auth_type": "pinned_client_certs",
+              "cloud_gateway": true,
+              "proxy_urls": [
+                {
+                  "host": "example.com",
+                  "port": 443,
+                  "protocol": "https"
+                }
+              ],
+              "labels": {
+                "env": "test"
+              }
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+        name: Fetch Control Plane
+        meta:
+          id: req_aef7077d13ec46c895b9d5e5b9d28384
+          created: 1717806424536
+          modified: 1717845548774
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424536
+        method: GET
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+        name: Delete Control Plane
+        meta:
+          id: req_2154bac04b934493b11bb76b1d552752
+          created: 1717806424537
+          modified: 1717845548772
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424537
+        method: DELETE
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+        name: Update Control Plane
+        meta:
+          id: req_faf92fde1efd4e55b7591a12f700b466
+          created: 1717806424537
+          modified: 1717845548778
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424537
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Test Control Plane",
+              "description": "A test control plane for exploration.",
+              "auth_type": "pinned_client_certs",
+              "proxy_urls": [
+                {
+                  "host": "example.com",
+                  "port": 443,
+                  "protocol": "https"
+                }
+              ],
+              "labels": {
+                "env": "test"
+              }
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Control Plane Groups
+    meta:
+      id: fld_6dd4947441724f54b887bbbb20a2daaa
+      created: 1717806424535
+      modified: 1717845548769
+      sortKey: -1717806424535
+      description: ""
+    children:
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships"
+        name: List Control Plane Group Memberships
+        meta:
+          id: req_bc8aabf8dbab4d3fbfb27ef3254472e5
+          created: 1717806424537
+          modified: 1717845548775
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424537
+        method: GET
+        parameters:
+          - disabled: true
+            name: page[size]
+            value: "10"
+          - disabled: true
+            name: page[number]
+            value: "1"
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships/add"
+        name: Add Control Plane Group Members
+        meta:
+          id: req_c9f821e299534cc0ba392c2e0cf8fbac
+          created: 1717806424537
+          modified: 1717845548777
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424537
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "members": [
+                {
+                  "id": "string"
+                }
+              ]
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships/remove"
+        name: Remove Control Plane Group Members
+        meta:
+          id: req_223158e7745947dbad951718785faff3
+          created: 1717806424538
+          modified: 1717845548772
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424538
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "members": [
+                {
+                  "id": "string"
+                }
+              ]
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-status"
+        name: Get Control Plane Group Status
+        meta:
+          id: req_b2f8b9c886d341a8b9a2160d325cffff
+          created: 1717806424538
+          modified: 1717845548774
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424538
+        method: GET
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-member-status"
+        name: Control Plane Group Member Status
+        meta:
+          id: req_c9fcccbcda274e90b502b056495f7935
+          created: 1717806424538
+          modified: 1717845548777
+          isPrivate: false
+          description: ""
+          sortKey: -1717806424538
+        method: GET
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Control Planes
+    meta:
+      id: fld_d7d68ddd1a62406cb1eddb5133d1145b
+      created: 1717806950580
+      modified: 1717845548770
+      sortKey: -1717806950580
+      description: ""
+    children:
+      - url: "{{ _.base_url }}/control-planes"
+        name: List Control Planes
+        meta:
+          id: req_c4a6b18e25134047a419cde132d452f8
+          created: 1717806950581
+          modified: 1717845548775
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950581
+        method: GET
+        parameters:
+          - disabled: true
+            name: page[size]
+            value: "10"
+          - disabled: true
+            name: page[number]
+            value: "1"
+          - disabled: true
+            name: filter[name][eq]
+            value: test
+          - disabled: true
+            name: filter[name]
+            value: test
+          - disabled: true
+            name: filter[name][contains]
+            value: test
+          - disabled: true
+            name: filter[name][neq]
+            value: test
+          - disabled: true
+            name: filter[id][eq]
+            value: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+          - disabled: true
+            name: filter[id]
+            value: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+          - disabled: true
+            name: filter[id][oeq]
+            value: some-value,some-other-value
+          - disabled: true
+            name: filter[cluster_type][eq]
+            value: string
+          - disabled: true
+            name: filter[cluster_type]
+            value: CLUSTER_TYPE_CONTROL_PLANE
+          - disabled: true
+            name: filter[cluster_type][neq]
+            value: test
+          - disabled: true
+            name: labels
+            value: key:value,existCheck
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+        name: Update Control Plane
+        meta:
+          id: req_047684ddf6194182acd9b1525c68b830
+          created: 1717806950582
+          modified: 1717845548770
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950582
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Test Control Plane",
+              "description": "A test control plane for exploration.",
+              "auth_type": "pinned_client_certs",
+              "proxy_urls": [
+                {
+                  "host": "example.com",
+                  "port": 443,
+                  "protocol": "https"
+                }
+              ],
+              "labels": {
+                "env": "test"
+              }
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes"
+        name: Create Control Plane
+        meta:
+          id: req_60ec9776e16a4d90ae78a12c2823b43d
+          created: 1717806950582
+          modified: 1717845548773
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950582
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Test Control Plane",
+              "description": "A test control plane for exploration.",
+              "cluster_type": "CLUSTER_TYPE_CONTROL_PLANE",
+              "auth_type": "pinned_client_certs",
+              "cloud_gateway": true,
+              "proxy_urls": [
+                {
+                  "host": "example.com",
+                  "port": 443,
+                  "protocol": "https"
+                }
+              ],
+              "labels": {
+                "env": "test"
+              }
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+        name: Delete Control Plane
+        meta:
+          id: req_7e1a1fc54d3744598cafd2b686bac7f4
+          created: 1717806950582
+          modified: 1717845548773
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950582
+        method: DELETE
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+        name: Fetch Control Plane
+        meta:
+          id: req_fe8b584e2bc14484ae8cf5b394d4a68e
+          created: 1717806950582
+          modified: 1717845548778
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950582
+        method: GET
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Control Plane Groups
+    meta:
+      id: fld_0c22598001634d78a0deba070ca83e01
+      created: 1717806950581
+      modified: 1717845548769
+      sortKey: -1717806950581
+      description: ""
+    children:
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships/remove"
+        name: Remove Control Plane Group Members
+        meta:
+          id: req_1888549b41014a3c8f2df028719b1499
+          created: 1717806950583
+          modified: 1717845548771
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950583
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "members": [
+                {
+                  "id": "string"
+                }
+              ]
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships"
+        name: List Control Plane Group Memberships
+        meta:
+          id: req_4a2be60b7f5e4551b4da203f3d453622
+          created: 1717806950583
+          modified: 1717845548772
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950583
+        method: GET
+        parameters:
+          - disabled: true
+            name: page[size]
+            value: "10"
+          - disabled: true
+            name: page[number]
+            value: "1"
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-member-status"
+        name: Control Plane Group Member Status
+        meta:
+          id: req_b73c62435ec1411284933c639e7f9fb8
+          created: 1717806950583
+          modified: 1717845548775
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950583
+        method: GET
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships/add"
+        name: Add Control Plane Group Members
+        meta:
+          id: req_f37d18c03eb24319b1223c47de218eed
+          created: 1717806950583
+          modified: 1717845548778
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950583
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "members": [
+                {
+                  "id": "string"
+                }
+              ]
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-status"
+        name: Get Control Plane Group Status
+        meta:
+          id: req_ca315245164542e49854110b991a8290
+          created: 1717806950584
+          modified: 1717845548777
+          isPrivate: false
+          description: ""
+          sortKey: -1717806950584
+        method: GET
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Control Planes
+    meta:
+      id: fld_7238173d8ff6403ea8e52f714dfd6de8
+      created: 1717817978832
+      modified: 1717845548769
+      sortKey: -1717817978832
+      description: ""
+    children:
+      - url: "{{ _.base_url }}/control-planes"
+        name: List Control Planes
+        meta:
+          id: req_c4ae17b84d9d4d41b25055a3229eaf6f
+          created: 1717817978833
+          modified: 1717845548776
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978833
+        method: GET
+        parameters:
+          - disabled: true
+            name: page[size]
+            value: "10"
+          - disabled: true
+            name: page[number]
+            value: "1"
+          - disabled: true
+            name: filter[name][eq]
+            value: test
+          - disabled: true
+            name: filter[name]
+            value: test
+          - disabled: true
+            name: filter[name][contains]
+            value: test
+          - disabled: true
+            name: filter[name][neq]
+            value: test
+          - disabled: true
+            name: filter[id][eq]
+            value: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+          - disabled: true
+            name: filter[id]
+            value: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+          - disabled: true
+            name: filter[id][oeq]
+            value: some-value,some-other-value
+          - disabled: true
+            name: filter[cluster_type][eq]
+            value: string
+          - disabled: true
+            name: filter[cluster_type]
+            value: CLUSTER_TYPE_CONTROL_PLANE
+          - disabled: true
+            name: filter[cluster_type][neq]
+            value: test
+          - disabled: true
+            name: labels
+            value: key:value,existCheck
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+        name: Update Control Plane
+        meta:
+          id: req_0dd1a160b0024aa18e15c90cd97ca741
+          created: 1717817978834
+          modified: 1717845548771
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978834
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Test Control Plane",
+              "description": "A test control plane for exploration.",
+              "auth_type": "pinned_client_certs",
+              "proxy_urls": [
+                {
+                  "host": "example.com",
+                  "port": 443,
+                  "protocol": "https"
+                }
+              ],
+              "labels": {
+                "env": "test"
+              }
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+        name: Delete Control Plane
+        meta:
+          id: req_a2d1b7f4b3054432a1e51f2a40c2512d
+          created: 1717817978834
+          modified: 1717845548774
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978834
+        method: DELETE
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}"
+        name: Fetch Control Plane
+        meta:
+          id: req_d2a5815a9df44ccf88e2e0c28dabe13f
+          created: 1717817978834
+          modified: 1717845548777
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978834
+        method: GET
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes"
+        name: Create Control Plane
+        meta:
+          id: req_df56afa541cc45a8a59f36f14463de98
+          created: 1717817978834
+          modified: 1717845548778
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978834
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Test Control Plane",
+              "description": "A test control plane for exploration.",
+              "cluster_type": "CLUSTER_TYPE_CONTROL_PLANE",
+              "auth_type": "pinned_client_certs",
+              "cloud_gateway": true,
+              "proxy_urls": [
+                {
+                  "host": "example.com",
+                  "port": 443,
+                  "protocol": "https"
+                }
+              ],
+              "labels": {
+                "env": "test"
+              }
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Control Plane Groups
+    meta:
+      id: fld_8c4a1dc68dd24ee185c7901a6a8d6043
+      created: 1717817978833
+      modified: 1717845548770
+      sortKey: -1717817978833
+      description: ""
+    children:
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships/add"
+        name: Add Control Plane Group Members
+        meta:
+          id: req_4192d2abf6ef49a3ae19c614789b00ac
+          created: 1717817978835
+          modified: 1717845548772
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978835
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "members": [
+                {
+                  "id": "string"
+                }
+              ]
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships/remove"
+        name: Remove Control Plane Group Members
+        meta:
+          id: req_4d3517e45df34d63a21700349354d579
+          created: 1717817978835
+          modified: 1717845548773
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978835
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "members": [
+                {
+                  "id": "string"
+                }
+              ]
+            }
+        headers:
+          - disabled: false
+            name: Content-Type
+            value: application/json
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-member-status"
+        name: Control Plane Group Member Status
+        meta:
+          id: req_51bf3f5014b342c38a07fda63b1edef2
+          created: 1717817978835
+          modified: 1717845548773
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978835
+        method: GET
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-memberships"
+        name: List Control Plane Group Memberships
+        meta:
+          id: req_970b37ba34db48d3a21ef1f2e2548dbe
+          created: 1717817978835
+          modified: 1717845548774
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978835
+        method: GET
+        parameters:
+          - disabled: true
+            name: page[size]
+            value: "10"
+          - disabled: true
+            name: page[number]
+            value: "1"
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/control-planes/{{ _.id }}/group-status"
+        name: Get Control Plane Group Status
+        meta:
+          id: req_c9dad1fb18ad43df91c829fe0670ed9d
+          created: 1717817978835
+          modified: 1717845548776
+          isPrivate: false
+          description: ""
+          sortKey: -1717817978835
+        method: GET
+        authentication:
+          prefix: ""
+          token: "{{ _.bearerToken }}"
+          type: bearer
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+environments:
+  name: Base Environment
+  meta:
+    id: env_90001e653f82f9e33284b6b7b964f4f6df6d374a
+    created: 1717804687212
+    modified: 1717804687212
+    isPrivate: false
+  subEnvironments:
+    - name: OpenAPI env us.api.konghq.com
+      meta:
+        id: env_20c3fe8aa2934db4b4dd1c469895278a
+        created: 1717806424532
+        modified: 1717845548766
+        isPrivate: false
+        sortKey: 1717806424532
+      data:
+        base_path: /v2
+        bearerToken: bearerToken
+        host: us.api.konghq.com
+        scheme: https
+    - name: OpenAPI env au.api.konghq.com
+      meta:
+        id: env_6eb2a77b6f9b488982f9230021a92d36
+        created: 1717806424533
+        modified: 1717845548767
+        isPrivate: false
+        sortKey: 1717806424533
+      data:
+        base_path: /v2
+        bearerToken: bearerToken
+        host: au.api.konghq.com
+        scheme: https
+    - name: OpenAPI env eu.api.konghq.com
+      meta:
+        id: env_874dce6555924ae9a038a9661998ae7d
+        created: 1717806424533
+        modified: 1717845548767
+        isPrivate: false
+        sortKey: 1717806424533
+      data:
+        base_path: /v2
+        bearerToken: bearerToken
+        host: eu.api.konghq.com
+        scheme: https
+    - name: OpenAPI env us.api.konghq.com
+      meta:
+        id: env_18b17d153f474370879cd7141a5f7725
+        created: 1717806950578
+        modified: 1717845548766
+        isPrivate: false
+        sortKey: 1717806950578
+      data:
+        base_path: /v2
+        bearerToken: bearerToken
+        host: us.api.konghq.com
+        scheme: https
+    - name: OpenAPI env au.api.konghq.com
+      meta:
+        id: env_872482c6afa44cb7bae066a2cac0d763
+        created: 1717806950579
+        modified: 1717845548767
+        isPrivate: false
+        sortKey: 1717806950579
+      data:
+        base_path: /v2
+        bearerToken: bearerToken
+        host: au.api.konghq.com
+        scheme: https
+    - name: OpenAPI env eu.api.konghq.com
+      meta:
+        id: env_cfea72791c6a46c58dcd63239b0046fc
+        created: 1717806950579
+        modified: 1717845548768
+        isPrivate: false
+        sortKey: 1717806950579
+      data:
+        base_path: /v2
+        bearerToken: bearerToken
+        host: eu.api.konghq.com
+        scheme: https
+    - name: OpenAPI env us.api.konghq.com
+      meta:
+        id: env_969a81becd324e92aa759be594b5797a
+        created: 1717817978831
+        modified: 1717845548768
+        isPrivate: false
+        sortKey: 1717817978831
+      data:
+        base_path: /v2
+        bearerToken: bearerToken
+        host: us.api.konghq.com
+        scheme: https
+    - name: OpenAPI env au.api.konghq.com
+      meta:
+        id: env_47a8e326090e482484afab31547e5698
+        created: 1717817978832
+        modified: 1717845548766
+        isPrivate: false
+        sortKey: 1717817978832
+      data:
+        base_path: /v2
+        bearerToken: bearerToken
+        host: au.api.konghq.com
+        scheme: https
+    - name: OpenAPI env eu.api.konghq.com
+      meta:
+        id: env_f768d6e027b8440da54743f39bb54d7a
+        created: 1717817978832
+        modified: 1717845548768
+        isPrivate: false
+        sortKey: 1717817978832
+      data:
+        base_path: /v2
+        bearerToken: bearerToken
+        host: eu.api.konghq.com
+        scheme: https
+spec:
+  contents:
+    openapi: 3.0.0
+    info:
+      title: Konnect Control Planes
+      version: 2.0.0
+      description: The API for Kong Konnect Control Planes.
+      contact:
+        name: Kong
+        url: https://cloud.konghq.com
+    servers:
+      - url: https://us.api.konghq.com/v2
+        description: US Region Base URL
+      - url: https://eu.api.konghq.com/v2
+        description: EU Region Base URL
+      - url: https://au.api.konghq.com/v2
+        description: AU Region Base URL
+    tags:
+      - name: Control Planes
+      - name: Control Plane Groups
+    paths:
+      /control-planes:
+        get:
+          summary: List Control Planes
+          responses:
+            "200":
+              $ref: "#/components/responses/ListControlPlanesResponse"
+            "400":
+              $ref: "#/components/responses/ControlPlanesBadRequest"
+            "401":
+              $ref: "#/components/responses/ControlPlaneUnauthenticated"
+            "403":
+              $ref: "#/components/responses/ControlPlanePermissionDenied"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+          operationId: list-control-planes
+          description: Returns an array of control plane objects containing information
+            about the Konnect Control Planes.
+          parameters:
+            - $ref: "#/components/parameters/PageSize"
+            - $ref: "#/components/parameters/PageNumber"
+            - $ref: "#/components/parameters/FilterByNameEquality"
+            - $ref: "#/components/parameters/FilterByNameEqualityShort"
+            - $ref: "#/components/parameters/FilterByNameContains"
+            - $ref: "#/components/parameters/FilterByNameNotEquals"
+            - $ref: "#/components/parameters/FilterByIdEquality"
+            - $ref: "#/components/parameters/FilterByIdEqualityShort"
+            - $ref: "#/components/parameters/FilterByIdsEquality"
+            - $ref: "#/components/parameters/FilterByClusterTypeEquality"
+            - $ref: "#/components/parameters/FilterByClusterTypeEqualityShort"
+            - $ref: "#/components/parameters/FilterByClusterTypeNotEquals"
+            - $ref: "#/components/parameters/FilterByLabels"
+          tags:
+            - Control Planes
+        post:
+          summary: Create Control Plane
+          operationId: create-control-plane
+          responses:
+            "201":
+              $ref: "#/components/responses/CreateControlPlaneResponse"
+            "400":
+              $ref: "#/components/responses/ControlPlanesBadRequest"
+            "401":
+              $ref: "#/components/responses/ControlPlaneUnauthenticated"
+            "403":
+              $ref: "#/components/responses/ControlPlanePermissionDenied"
+            "409":
+              $ref: "#/components/responses/ControlPlaneConflict"
+            "500":
+              $ref: "#/components/responses/InternalServerError"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+          tags:
+            - Control Planes
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/CreateControlPlaneRequest"
+                examples:
+                  Example Request Body:
+                    $ref: "#/components/examples/CreateControlPlaneRequestExample"
+          description: Create a control plane in the Konnect Organization.
+      /control-planes/{id}:
+        parameters:
+          - schema:
+              type: string
+              format: uuid
+              example: d32d905a-ed33-46a3-a093-d8f536af9a8a
+            name: id
+            in: path
+            required: true
+            description: The control plane ID
+        get:
+          summary: Fetch Control Plane
+          responses:
+            "200":
+              $ref: "#/components/responses/RetrieveControlPlaneResponse"
+            "400":
+              $ref: "#/components/responses/ControlPlanesBadRequest"
+            "401":
+              $ref: "#/components/responses/ControlPlaneUnauthenticated"
+            "403":
+              $ref: "#/components/responses/ControlPlanePermissionDenied"
+            "404":
+              $ref: "#/components/responses/ControlPlaneNotFound"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+          operationId: get-control-plane
+          description: Returns information about a team from a given team ID.
+          tags:
+            - Control Planes
+        patch:
+          summary: Update Control Plane
+          operationId: update-control-plane
+          responses:
+            "200":
+              $ref: "#/components/responses/UpdateControlPlaneResponse"
+            "400":
+              $ref: "#/components/responses/ControlPlanesBadRequest"
+            "401":
+              $ref: "#/components/responses/ControlPlaneUnauthenticated"
+            "403":
+              $ref: "#/components/responses/ControlPlanePermissionDenied"
+            "404":
+              $ref: "#/components/responses/ControlPlaneNotFound"
+            "500":
+              $ref: "#/components/responses/InternalServerError"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+          description: Update an individual control plane.
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/UpdateControlPlaneRequest"
+                examples:
+                  Example Request Body:
+                    $ref: "#/components/examples/UpdateControlPlaneRequestExample"
+          tags:
+            - Control Planes
+        delete:
+          summary: Delete Control Plane
+          operationId: delete-control-plane
+          responses:
+            "204":
+              description: No Content
+            "400":
+              $ref: "#/components/responses/ControlPlanesBadRequest"
+            "401":
+              $ref: "#/components/responses/ControlPlaneUnauthenticated"
+            "403":
+              $ref: "#/components/responses/ControlPlanePermissionDenied"
+            "404":
+              $ref: "#/components/responses/ControlPlaneNotFound"
+            "500":
+              $ref: "#/components/responses/InternalServerError"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+          description: Delete an individual control plane.
+          tags:
+            - Control Planes
+      /control-planes/{id}/group-memberships:
+        parameters:
+          - schema:
+              type: string
+            name: id
+            in: path
+            required: true
+            description: ID of a control plane group
+        get:
+          summary: List Control Plane Group Memberships
+          tags:
+            - Control Plane Groups
+          responses:
+            "200":
+              $ref: "#/components/responses/ListGroupMemberships"
+            "400":
+              $ref: "#/components/responses/BadRequest"
+            "401":
+              $ref: "#/components/responses/Unauthorized"
+            "403":
+              $ref: "#/components/responses/Forbidden"
+            "404":
+              $ref: "#/components/responses/NotFound"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+          operationId: get-control-planes-id-group-memberships
+          description: Returns an array of control planes that are a member of this
+            control plane group.
+          parameters:
+            - $ref: "#/components/parameters/PageSize"
+            - $ref: "#/components/parameters/PageNumber"
+      /control-planes/{id}/group-memberships/add:
+        parameters:
+          - schema:
+              type: string
+            name: id
+            in: path
+            required: true
+            description: ID of a control plane group
+        post:
+          summary: Add Control Plane Group Members
+          operationId: post-control-planes-id-group-memberships-add
+          responses:
+            "204":
+              description: No Content
+            "400":
+              $ref: "#/components/responses/BadRequest"
+            "401":
+              $ref: "#/components/responses/Unauthorized"
+            "403":
+              $ref: "#/components/responses/Forbidden"
+            "404":
+              $ref: "#/components/responses/NotFound"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+          requestBody:
+            $ref: "#/components/requestBodies/GroupMemebershipAdd"
+          tags:
+            - Control Plane Groups
+          description: Adds one or more control planes as a member of a control plane group.
+      /control-planes/{id}/group-memberships/remove:
+        parameters:
+          - schema:
+              type: string
+            name: id
+            in: path
+            required: true
+            description: ID of a control plane group
+        post:
+          summary: Remove Control Plane Group Members
+          operationId: post-control-planes-id-group-memberships-remove
+          requestBody:
+            $ref: "#/components/requestBodies/GroupMembershipRemove"
+          tags:
+            - Control Plane Groups
+          description: Removes one or more control planes from the members of a control
+            plane group.
+          responses:
+            "204":
+              description: No Content
+            "400":
+              $ref: "#/components/responses/BadRequest"
+            "401":
+              $ref: "#/components/responses/Unauthorized"
+            "403":
+              $ref: "#/components/responses/Forbidden"
+            "404":
+              $ref: "#/components/responses/NotFound"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+      /control-planes/{id}/group-member-status:
+        parameters:
+          - schema:
+              type: string
+            name: id
+            in: path
+            required: true
+            description: ID of a control plane
+        get:
+          summary: Control Plane Group Member Status
+          operationId: get-control-planes-id-group-member-status
+          tags:
+            - Control Plane Groups
+          description: Determines the group membership status of a control plane.
+          responses:
+            "200":
+              $ref: "#/components/responses/GetGroupMemberStatus"
+            "400":
+              $ref: "#/components/responses/BadRequest"
+            "401":
+              $ref: "#/components/responses/Unauthorized"
+            "403":
+              $ref: "#/components/responses/Forbidden"
+            "404":
+              $ref: "#/components/responses/NotFound"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+      /control-planes/{id}/group-status:
+        parameters:
+          - schema:
+              type: string
+            name: id
+            in: path
+            required: true
+            description: ID of a control plane group
+        get:
+          summary: Get Control Plane Group Status
+          tags:
+            - Control Plane Groups
+          responses:
+            "200":
+              $ref: "#/components/responses/GetGroupStatus"
+            "400":
+              $ref: "#/components/responses/BadRequest"
+            "401":
+              $ref: "#/components/responses/Unauthorized"
+            "403":
+              $ref: "#/components/responses/Forbidden"
+            "404":
+              $ref: "#/components/responses/NotFound"
+            "503":
+              $ref: "#/components/responses/ServiceUnavailable"
+          operationId: get-control-planes-id-group-status
+          description: Returns the status of a control plane group, including existing
+            conflicts.
+    components:
+      parameters:
+        FilterByLabels:
+          name: labels
+          description: Filter control planes in the response by associated labels.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: key:value,existCheck
+        FilterByNameEquality:
+          name: filter[name][eq]
+          description: Filter by direct equality comparison of the name property with a
+            supplied value.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: test
+        FilterByNameEqualityShort:
+          name: filter[name]
+          description: Filter by direct equality comparison (short-hand) of the name
+            property with a supplied value.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: test
+        FilterByNameContains:
+          name: filter[name][contains]
+          description: Filter by contains comparison of the name property with a supplied
+            substring.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: test
+        FilterByNameNotEquals:
+          name: filter[name][neq]
+          description: Filter by non-equality comparison of the name property with a
+            supplied value.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: test
+        FilterByIdEquality:
+          name: filter[id][eq]
+          description: Filter by direct equality comparison of the id property with a
+            supplied value.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+        FilterByIdEqualityShort:
+          name: filter[id]
+          description: Filter by direct equality comparison (short-hand) of the id
+            property with a supplied value.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+        FilterByIdsEquality:
+          name: filter[id][oeq]
+          description: Filter by direct equality comparison of id property with multiple
+            supplied values.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: some-value,some-other-value
+        FilterByClusterTypeEquality:
+          name: filter[cluster_type][eq]
+          description: Filter by direct equality comparison of the cluster_type property
+            with a supplied value.
+          in: query
+          required: false
+          schema:
+            type: string
+          example: CLUSTER_TYPE_CONTROL_PLANE
+        FilterByClusterTypeEqualityShort:
+          name: filter[cluster_type]
+          description: Filter by direct equality comparison (short-hand) of the
+            cluster_type property with a supplied value.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: CLUSTER_TYPE_CONTROL_PLANE
+        FilterByClusterTypeNotEquals:
+          name: filter[cluster_type][neq]
+          description: Filter by non-equality comparison of the cluster_type property with
+            a supplied value.
+          in: query
+          required: false
+          schema:
+            type: string
+            example: test
+        PageSize:
+          name: page[size]
+          description: The maximum number of items to include per page. The last page of a
+            collection may include fewer items.
+          required: false
+          in: query
+          allowEmptyValue: true
+          schema:
+            type: integer
+            example: 10
+        PageNumber:
+          name: page[number]
+          description: Determines which page of the entities to retrieve.
+          required: false
+          in: query
+          allowEmptyValue: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        RetrieveControlPlaneResponse:
+          description: A response to retrieving a single control plane.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ControlPlane"
+              examples:
+                Single control plane response:
+                  $ref: "#/components/examples/ControlPlaneExample"
+        CreateControlPlaneResponse:
+          description: A response to creating a control plane.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ControlPlane"
+              examples:
+                Create Control Plane Response:
+                  $ref: "#/components/examples/ControlPlaneExample"
+        UpdateControlPlaneResponse:
+          description: A response to updating a control plane.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ControlPlane"
+              examples:
+                Update Control Plane Response:
+                  $ref: "#/components/examples/ControlPlaneExample"
+        ListControlPlanesResponse:
+          description: A paginated list response for a collection of control planes.
+          content:
+            application/json:
+              schema:
+                title: ListControlPlanesResponse
+                type: object
+                additionalProperties: false
+                properties:
+                  meta:
+                    $ref: "#/components/schemas/PaginatedMeta"
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ControlPlane"
+                required:
+                  - meta
+                  - data
+        ControlPlanesBadRequest:
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/BadRequestError"
+              examples:
+                Request Format Invalid:
+                  $ref: "#/components/examples/400RequestFormatInvalidExample"
+                Cannot Be Blank:
+                  $ref: "#/components/examples/400CannotBeBlankExample"
+                Invalid ID Format:
+                  $ref: "#/components/examples/400InvalidIDFormatExample"
+                Usage Limits Reached:
+                  $ref: "#/components/examples/400UsageLimitsReachedExample"
+                Unknown Property:
+                  $ref: "#/components/examples/400UnknownPropertyExample"
+        ControlPlanePermissionDenied:
+          description: Permission denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ForbiddenError"
+              examples:
+                Permission Denied:
+                  $ref: "#/components/examples/403PermissionDeniedExample"
+        ControlPlaneUnauthenticated:
+          description: Unauthenticated
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/UnauthorizedError"
+              examples:
+                Unauthorized:
+                  $ref: "#/components/examples/401UnauthenticatedExample"
+        ControlPlaneNotFound:
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/NotFoundError"
+              examples:
+                Not Found:
+                  $ref: "#/components/examples/404NotFoundExample"
+        ControlPlaneConflict:
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ConflictError"
+              examples:
+                Conflict:
+                  $ref: "#/components/examples/409ConflictExample"
+        InternalServerError:
+          description: Internal Server Error
+          content:
+            application/problem+json:
+              schema:
+                title: InternalServerError
+                type: object
+                description: The error response object.
+                properties:
+                  status:
+                    type: integer
+                    description: The HTTP status code.
+                    example: 500
+                    enum:
+                      - 500
+                  title:
+                    type: string
+                    description: The error response code.
+                    example: Internal Server Error
+                  instance:
+                    type: string
+                    example: konnect:trace:2287285207635123011
+                    description: The Konnect traceback code
+                  detail:
+                    type: string
+                    example: Could not propagate control plane changes to control plane cluster
+                      service.
+                    description: Details about the error.
+                required:
+                  - status
+                  - title
+                  - instance
+              examples:
+                Internal Server Error:
+                  $ref: "#/components/examples/500InternalErrorExample"
+        ServiceUnavailable:
+          description: Service Unavailable
+          content:
+            application/problem+json:
+              schema:
+                title: ServiceUnavailableError
+                type: object
+                description: Error response for temporary service unavailability.
+                properties:
+                  status:
+                    type: integer
+                    description: The HTTP status code.
+                    example: 503
+                    enum:
+                      - 503
+                  title:
+                    type: string
+                    description: The error response code.
+                    example: Service Unavailable
+                  instance:
+                    type: string
+                    example: konnect:trace:2287285207635123011
+                    description: The Konnect traceback code
+                  detail:
+                    type: string
+                    example: Could not retrieve permissions to check resource accessibility.
+                    description: Details about the error.
+                required:
+                  - status
+                  - title
+                  - instance
+              examples:
+                Service Unavailable:
+                  $ref: "#/components/examples/503PermissionReadFailureExample"
+        ListGroupMemberships:
+          description: A paginated list response for a collection of control plane group
+            memberships.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    $ref: "#/components/schemas/PaginatedMeta"
+                  data:
+                    type: array
+                    description: Array of control planes summary who are a child to this control
+                      plane group.
+                    items:
+                      $ref: "#/components/schemas/ControlPlaneSummary"
+              examples:
+                List Group Memberships Example:
+                  $ref: "#/components/examples/ListGroupMembershipsExample"
+        GetGroupStatus:
+          description: Status of a control plane group, including existing conflicts.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GroupStatus"
+              examples:
+                Group Conflict Status Example:
+                  $ref: "#/components/examples/GroupConflictStatusExample"
+                Group No Conflict Status Example:
+                  $ref: "#/components/examples/GroupNoConflictStatusExample"
+        GetGroupMemberStatus:
+          description: Determines the group membership status of a control plane.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GroupMemberStatus"
+        BadRequest:
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/BadRequestError"
+        Unauthorized:
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/UnauthorizedError"
+              examples:
+                UnauthorizedExample:
+                  $ref: "#/components/examples/UnauthorizedExample"
+        Forbidden:
+          description: Forbidden
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ForbiddenError"
+              examples:
+                UnauthorizedExample:
+                  $ref: "#/components/examples/ForbiddenExample"
+        NotFound:
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/NotFoundError"
+              examples:
+                NotFoundExample:
+                  $ref: "#/components/examples/NotFoundExample"
+      schemas:
+        CreateControlPlaneRequest:
+          title: CreateControlPlaneRequest
+          description: The request schema for the create control plane request.
+          type: object
+          additionalProperties: false
+          properties:
+            name:
+              type: string
+              example: Test Control Plane
+              description: The name of the control plane.
+            description:
+              type: string
+              example: A test control plane for exploration.
+              description: The description of the control plane in Konnect.
+            cluster_type:
+              type: string
+              description: The ClusterType value of the cluster associated with the Control
+                Plane.
+              example: CLUSTER_TYPE_CONTROL_PLANE
+              enum:
+                - CLUSTER_TYPE_CONTROL_PLANE
+                - CLUSTER_TYPE_K8S_INGRESS_CONTROLLER
+                - CLUSTER_TYPE_CONTROL_PLANE_GROUP
+            auth_type:
+              type: string
+              description: The auth type value of the cluster associated with the Runtime
+                Group.
+              example: pinned_client_certs
+              enum:
+                - pinned_client_certs
+                - pki_client_certs
+            cloud_gateway:
+              type: boolean
+              description: Whether this control-plane can be used for cloud-gateways.
+              example: false
+            proxy_urls:
+              $ref: "#/components/schemas/ProxyURLs"
+            labels:
+              $ref: "#/components/schemas/Labels"
+          required:
+            - name
+        UpdateControlPlaneRequest:
+          title: UpdateControlPlaneRequest
+          description: The request schema for the update control plane request.
+          type: object
+          additionalProperties: false
+          properties:
+            name:
+              type: string
+              example: Test Control Plane
+              description: The name of the control plane.
+            description:
+              type: string
+              example: A test control plane for exploration.
+              description: The description of the control plane in Konnect.
+            auth_type:
+              type: string
+              description: The auth type value of the cluster associated with the Runtime
+                Group.
+              example: pinned_client_certs
+              enum:
+                - pinned_client_certs
+                - pki_client_certs
+            proxy_urls:
+              $ref: "#/components/schemas/ProxyURLs"
+            labels:
+              $ref: "#/components/schemas/Labels"
+        ControlPlane:
+          allOf:
+            - $ref: "#/components/schemas/ControlPlaneSummary"
+            - type: object
+              properties:
+                labels:
+                  $ref: "#/components/schemas/Labels"
+                config:
+                  type: object
+                  description: CP configuration object for related access endpoints.
+                  properties:
+                    control_plane_endpoint:
+                      type: string
+                      format: url
+                      example: https://acfe5f253f.cp0.konghq.com
+                      description: Control Plane Endpoint.
+                      readOnly: true
+                    telemetry_endpoint:
+                      type: string
+                      format: url
+                      example: https://acfe5f253f.tp0.konghq.com
+                      description: Telemetry Endpoint.
+                      readOnly: true
+                created_at:
+                  type: string
+                  format: date-time
+                  example: 2022-11-04T20:10:06.927Z
+                  description: An ISO-8604 timestamp representation of control plane creation
+                    date.
+                  readOnly: true
+                updated_at:
+                  type: string
+                  format: date-time
+                  example: 2022-11-04T20:10:06.927Z
+                  description: An ISO-8604 timestamp representation of control plane update date.
+                  readOnly: true
+          x-examples:
+            Example 1:
+              id: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+              name: Test Control Plane
+              description: A test control plane for exploration.
+              labels:
+                env: test
+              config:
+                control_plane_endpoint: https://acfe5f253f.cp0.konghq.com
+                telemetry_endpoint: https://acfe5f253f.tp0.konghq.com
+                cluster_type: CLUSTER_TYPE_CONTROL_PLANE
+                auth_type: pinned_client_certs
+                cloud_gateway: false
+                proxy_urls:
+                  - host: example.com
+                    port: 443
+                    protocol: https
+              created_at: 2022-11-04T20:10:06.927Z
+              updated_at: 2022-11-04T20:10:06.927Z
+        ControlPlaneSummary:
+          title: ControlPlaneSummary
+          type: object
+          description: The control plane object contains information about a Kong control
+            plane.
+          additionalProperties: false
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+              description: The control plane ID.
+              readOnly: true
+            name:
+              type: string
+              example: Test Control Plane
+              description: The name of the control plane.
+            description:
+              type: string
+              example: A test control plane for exploration.
+              description: The description of the control plane in Konnect.
+            labels:
+              $ref: "#/components/schemas/Labels"
+            config:
+              type: object
+              description: CP configuration object for related access endpoints.
+              additionalProperties: false
+              properties:
+                control_plane_endpoint:
+                  type: string
+                  format: url
+                  example: https://acfe5f253f.cp0.konghq.com
+                  description: Control Plane Endpoint.
+                  readOnly: true
+                telemetry_endpoint:
+                  type: string
+                  format: url
+                  example: https://acfe5f253f.tp0.konghq.com
+                  description: Telemetry Endpoint.
+                  readOnly: true
+                cluster_type:
+                  type: string
+                  description: The ClusterType value of the cluster associated with the Control
+                    Plane.
+                  example: CLUSTER_TYPE_CONTROL_PLANE
+                  enum:
+                    - CLUSTER_TYPE_CONTROL_PLANE
+                    - CLUSTER_TYPE_K8S_INGRESS_CONTROLLER
+                    - CLUSTER_TYPE_CONTROL_PLANE_GROUP
+                  readOnly: true
+                auth_type:
+                  type: string
+                  description: The auth type value of the cluster associated with the Runtime
+                    Group.
+                  example: pinned_client_certs
+                  enum:
+                    - pinned_client_certs
+                    - pki_client_certs
+                  readOnly: true
+                cloud_gateway:
+                  type: boolean
+                  description: Whether the Control Plane can be used for cloud-gateways.
+                  readOnly: true
+                proxy_urls:
+                  $ref: "#/components/schemas/ProxyURLs"
+              required:
+                - control_plane_endpoint
+                - telemetry_endpoint
+                - cluster_type
+                - auth_type
+                - cloud_gateway
+            created_at:
+              type: string
+              format: date-time
+            updated_at:
+              type: string
+              format: date-time
+        GroupStatus:
+          title: GroupStatus
+          type: object
+          description: The Group Status object contains information about the status of a
+            control plane group.
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+              description: The control plane group ID.
+              readOnly: true
+            created_at:
+              type: string
+              format: date-time
+              example: 2022-11-04T20:10:06.927Z
+              description: An ISO-8604 timestamp representation of control plane group status
+                creation date.
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              example: 2022-11-04T20:10:06.927Z
+              description: An ISO-8604 timestamp representation of control plane group status
+                update date.
+              readOnly: true
+            conflicts:
+              type: array
+              maxItems: 256
+              items:
+                $ref: "#/components/schemas/GroupConflict"
+            state:
+              type: string
+              description: The state of the control plane group.
+              example: CONFLICT
+              readOnly: true
+              enum:
+                - OK
+                - CONFLICT
+                - UNKNOWN
+        GroupConflict:
+          title: GroupConflict
+          type: object
+          description: The Group Conflict object contains information about a conflict in
+            a control plane group.
+          properties:
+            cluster_id:
+              type: string
+              format: uuid
+              example: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+              description: The ID of a control plane member of a control plane group.
+              readOnly: true
+            description:
+              type: string
+              example: "conflicting entity found: ID=38d790ad-8b08-4ff5-a074-2e1e9e64d8bd,
+                Name=foo"
+              description: The description of the conflict.
+              readOnly: true
+            resource:
+              $ref: "#/components/schemas/GroupConflictResource"
+        GroupConflictResource:
+          title: GroupConflictResource
+          type: object
+          description: A resource causing a conflict in a control plane group.
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+              description: The ID of the resource.
+              readOnly: true
+            type:
+              type: string
+              example: service
+              description: The type of the resource.
+              readOnly: true
+          required:
+            - id
+            - type
+        GroupMemberStatus:
+          title: GroupMemberStatus
+          type: object
+          description: Object with information determining the group membership status of
+            a control plane.
+          properties:
+            is_member:
+              type: boolean
+              example: true
+              description: Boolean indicating if a control plane is a member of a control
+                plane group.
+              readOnly: true
+          required:
+            - is_member
+        Labels:
+          title: Labels
+          type: object
+          example:
+            env: test
+          description: Labels to facilitate tagged search on control planes. Keys must be
+            of length 1-63 characters, and cannot start with 'kong', 'konnect',
+            'mesh', 'kic', or '_'.
+          additionalProperties:
+            type: string
+            pattern: ^[a-z0-9A-Z]{1}([a-z0-9A-Z\-\.\_]*[a-z0-9A-Z]+)?$
+            minLength: 1
+            maxLength: 63
+        ProxyURL:
+          title: ProxyURL
+          description: Proxy URL associated with reaching the data-planes connected to a
+            control-plane.
+          type: object
+          additionalProperties: false
+          properties:
+            host:
+              type: string
+              description: Hostname of the proxy URL.
+            port:
+              type: integer
+              description: Port of the proxy URL.
+            protocol:
+              type: string
+              description: Protocol of the proxy URL.
+          required:
+            - host
+            - port
+            - protocol
+          example:
+            host: example.com
+            port: 443
+            protocol: https
+        ProxyURLs:
+          title: ProxyURLs
+          description: Array of proxy URLs associated with reaching the data-planes
+            connected to a control-plane.
+          type: array
+          items:
+            $ref: "#/components/schemas/ProxyURL"
+          example:
+            - host: example.com
+              port: 443
+              protocol: https
+        PageMeta:
+          type: object
+          description: Contains pagination query parameters and the total number of
+            objects returned.
+          required:
+            - number
+            - size
+            - total
+          properties:
+            number:
+              type: number
+              example: 1
+            size:
+              type: number
+              example: 10
+            total:
+              type: number
+              example: 100
+        PaginatedMeta:
+          type: object
+          title: PaginatedMeta
+          description: returns the pagination information
+          properties:
+            page:
+              $ref: "#/components/schemas/PageMeta"
+          required:
+            - page
+        BaseError:
+          type: object
+          title: Error
+          description: standard error
+          required:
+            - status
+            - title
+            - instance
+            - detail
+          properties:
+            status:
+              type: integer
+              description: >
+                The HTTP status code of the error. Useful when passing the
+                response
+
+                body to child properties in a frontend UI. Must be returned as
+                an integer.
+              readOnly: true
+            title:
+              type: string
+              description: |
+                A short, human-readable summary of the problem. It should not
+                change between occurences of a problem, except for localization.
+                Should be provided as "Sentence case" for direct use in the UI.
+              readOnly: true
+            type:
+              type: string
+              description: The error type.
+              readOnly: true
+            instance:
+              type: string
+              description: >
+                Used to return the correlation ID back to the user, in the
+                format
+
+                kong:trace:<correlation_id>. This helps us find the relevant
+                logs
+
+                when a customer reports an issue.
+              readOnly: true
+            detail:
+              type: string
+              description: >
+                A human readable explanation specific to this occurence of the
+                problem.
+
+                This field may contain request/entity data to help the user
+                understand
+
+                what went wrong. Enclose variable values in square brackets.
+                Should be
+
+                provided as "Sentence case" for direct use in the UI.
+              readOnly: true
+        InvalidRules:
+          description: invalid parameters rules
+          type: string
+          readOnly: true
+          nullable: true
+          enum:
+            - required
+            - enum
+            - min_length
+            - max_length
+            - min_digits
+            - min_lowercase
+            - min_uppercase
+            - min_symbols
+            - is_array
+            - is_base64
+            - is_boolean
+            - is_date_time
+            - is_integer
+            - is_null
+            - is_number
+            - is_object
+            - is_string
+            - is_uuid
+            - unknown_property
+            - is_label
+            - matches_regex
+        InvalidParameterChoiceItem:
+          type: object
+          properties:
+            field:
+              type: string
+              example: name
+              readOnly: true
+            rule:
+              $ref: "#/components/schemas/InvalidRules"
+            reason:
+              type: string
+              example: is a required field
+              readOnly: true
+            choices:
+              type: array
+              uniqueItems: true
+              nullable: true
+              readOnly: true
+          required:
+            - field
+            - reason
+        InvalidParameterDependentItem:
+          type: object
+          properties:
+            field:
+              type: string
+              example: name
+              readOnly: true
+            rule:
+              description: invalid parameters rules
+              type: string
+              readOnly: true
+              nullable: true
+              enum:
+                - dependent_fields
+            reason:
+              type: string
+              example: is a required field
+              readOnly: true
+            dependents:
+              type: array
+              uniqueItems: true
+              nullable: true
+              readOnly: true
+          required:
+            - field
+            - rule
+            - reason
+            - dependents
+        InvalidParameters:
+          type: array
+          nullable: false
+          uniqueItems: true
+          minItems: 1
+          description: invalid parameters
+          items:
+            oneOf:
+              - $ref: "#/components/schemas/InvalidParameterChoiceItem"
+              - $ref: "#/components/schemas/InvalidParameterDependentItem"
+        BadRequestError:
+          type: object
+          required:
+            - invalid_parameters
+          properties:
+            status:
+              example: 400
+            title:
+              example: Bad Request
+            type:
+              example: https://httpstatuses.com/400
+            instance:
+              example: kong:trace:1234567890
+            detail:
+              example: Invalid request body
+            invalid_parameters:
+              $ref: "#/components/schemas/InvalidParameters"
+          allOf:
+            - $ref: "#/components/schemas/BaseError"
+        UnauthorizedError:
+          type: object
+          properties:
+            status:
+              example: 401
+            title:
+              example: Unauthorized
+            type:
+              example: https://httpstatuses.com/401
+            instance:
+              example: kong:trace:1234567890
+            detail:
+              example: Invalid credentials
+          allOf:
+            - $ref: "#/components/schemas/BaseError"
+        ForbiddenError:
+          type: object
+          properties:
+            status:
+              example: 403
+            title:
+              example: Forbidden
+            type:
+              example: https://httpstatuses.com/403
+            instance:
+              example: kong:trace:1234567890
+            detail:
+              example: Forbidden
+          allOf:
+            - $ref: "#/components/schemas/BaseError"
+        ConflictError:
+          type: object
+          properties:
+            status:
+              example: 409
+            title:
+              example: Conflict
+            type:
+              example: https://httpstatuses.com/409
+            instance:
+              example: kong:trace:1234567890
+            detail:
+              example: Conflict
+          allOf:
+            - $ref: "#/components/schemas/BaseError"
+        NotFoundError:
+          type: object
+          properties:
+            status:
+              example: 404
+            title:
+              example: Not Found
+            type:
+              example: https://httpstatuses.com/404
+            instance:
+              example: kong:trace:1234567890
+            detail:
+              example: Not found
+          allOf:
+            - $ref: "#/components/schemas/BaseError"
+      securitySchemes:
+        personalAccessToken:
+          type: http
+          scheme: bearer
+          bearerFormat: Token
+          description: >
+            The personal access token is meant to be used as an alternative to
+            basic-auth when accessing Konnect via APIs.
+
+            You can generate a Personal Access Token (PAT) from the [personal
+            access token page](https://cloud.konghq.com/global/tokens/) in the
+            Konnect dashboard.
+
+            The PAT token must be passed in the header of a request, for
+            example:
+
+            `curl -X GET 'https://global.api.konghq.com/v2/users/' --header
+            'Authorization: Bearer kpat_xgfT...'`
+        systemAccountAccessToken:
+          type: http
+          scheme: bearer
+          bearerFormat: Token
+          description: >
+            The system account access token is meant for automations and
+            integrations that are not directly associated with a human identity.
+
+            You can generate a system account Access Token by creating a system
+            account and then obtaining a system account access token for that
+            account.
+
+            The access token must be passed in the header of a request, for
+            example:
+
+            `curl -X GET 'https://global.api.konghq.com/v2/users/' --header
+            'Authorization: Bearer spat_i2Ej...'`
+      examples:
+        400RequestFormatInvalidExample:
+          value:
+            status: 400
+            title: Bad Request
+            instance: konnect:trace:3674017986744198214
+            invalid_parameters:
+              - field: body
+                reason: request format is invalid
+        400CannotBeBlankExample:
+          value:
+            status: 400
+            title: Bad Request
+            instance: konnect:trace:6644808935508571943
+            invalid_parameters:
+              - field: name
+                reason: cannot be blank
+        400InvalidIDFormatExample:
+          value:
+            status: 400
+            title: Bad Request
+            instance: konnect:trace:8988732526256293040
+            invalid_parameters:
+              - field: id
+                reason: invalid ID format
+        400UsageLimitsReachedExample:
+          value:
+            status: 400
+            title: Bad Request
+            instance: konnect:trace:8988732526256293040
+            detail: Cannot create an additional control plane because usage limits have been
+              reached.
+        400UnknownPropertyExample:
+          value:
+            status: 400
+            title: Bad Request
+            instance: konnect:trace:8988732526256293040
+            invalid_parameters:
+              - field: id
+                rule: unknownProperty
+                reason: property id should not exist
+        401UnauthenticatedExample:
+          value:
+            status: 401
+            title: Unauthenticated
+            instance: konnect:trace:952172606039454040
+            detail: A valid token is required
+        403PermissionDeniedExample:
+          value:
+            status: 403
+            title: Permission denied
+            instance: konnect:trace:2822394689570210664
+            detail: Insufficient role-set to create control planes.
+        404NotFoundExample:
+          value:
+            status: 404
+            title: Not Found
+            instance: konnect:trace:2287285207635123011
+            detail: The requested control plane was not found.
+        409ConflictExample:
+          value:
+            status: 409
+            title: Conflict
+            instance: konnect:trace:2287285207635123011
+            detail: Control Plane with provided name already exists.
+        500InternalErrorExample:
+          value:
+            status: 500
+            title: Internal Server Error
+            instance: konnect:trace:2287285207635123011
+            detail: Could not propagate control plane changes to control plane cluster
+              service.
+        503PermissionReadFailureExample:
+          value:
+            status: 503
+            title: Service Unavailable
+            instance: konnect:trace:2287285207635123011
+            detail: Could not retrieve permissions to check resource accessibility.
+        CreateControlPlaneRequestExample:
+          value:
+            name: Test Control Plane
+            description: A test control plane for exploration.
+            cluster_type: CLUSTER_TYPE_K8S_INGRESS_CONTROLLER
+            cloud_gateway: false
+            proxy_urls:
+              - host: example.com
+                port: 443
+                protocol: https
+            labels:
+              env: test
+        UpdateControlPlaneRequestExample:
+          value:
+            name: Test Control Plane
+            description: A test control plane for exploration.
+            proxy_urls:
+              - host: example.com
+                port: 443
+                protocol: https
+            labels:
+              env: development
+        ControlPlaneExample:
+          value:
+            id: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+            name: Test Control Plane
+            description: A test control plane for exploration.
+            labels:
+              env: test
+            config:
+              control_plane_endpoint: https://acfe5f253f.cp0.konghq.com
+              telemetry_endpoint: https://acfe5f253f.tp0.konghq.com
+              cluster_type: CLUSTER_TYPE_CONTROL_PLANE
+              auth_type: pinned_client_certs
+              cloud_gateway: false
+              proxy_urls:
+                - host: example.com
+                  port: 443
+                  protocol: https
+        GroupConflictStatusExample:
+          value:
+            id: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+            conflicts:
+              - cluster_id: 57fdf779-7935-476f-ab2b-7fa1323b70e6
+                description: "conflicting entity found: ID=df43b088-cace-4119-9e2a-d83e5fbb0c48,
+                  Name=svc1"
+                resource:
+                  id: df43b088-cace-4119-9e2a-d83e5fbb0c48
+                  type: service
+              - cluster_id: 38ceea96-fe39-11ed-be56-0242ac120002
+                description: "conflicting entity found: ID=15f3ab7d-7202-498a-95b4-334f783dbcdd,
+                  Name=svc1"
+                resource:
+                  id: 15f3ab7d-7202-498a-95b4-334f783dbcdd
+                  type: service
+            state: CONFLICT
+            created_at: 2022-11-04T20:10:06.927Z
+            updated_at: 2022-11-04T20:10:06.927Z
+        GroupNoConflictStatusExample:
+          value:
+            id: 7f9fd312-a987-4628-b4c5-bb4f4fddd5f7
+            conflicts:
+              - cluster_id: 57fdf779-7935-476f-ab2b-7fa1323b70e6
+                description: "conflicting entity found: ID=df43b088-cace-4119-9e2a-d83e5fbb0c48,
+                  Name=svc1"
+                resource:
+                  id: df43b088-cace-4119-9e2a-d83e5fbb0c48
+                  type: service
+              - cluster_id: 38ceea96-fe39-11ed-be56-0242ac120002
+                description: "conflicting entity found: ID=15f3ab7d-7202-498a-95b4-334f783dbcdd,
+                  Name=svc1"
+                resource:
+                  id: 15f3ab7d-7202-498a-95b4-334f783dbcdd
+                  type: service
+            state: CONFLICT
+            created_at: 2022-11-04T20:10:06.927Z
+            updated_at: 2022-11-04T20:10:06.927Z
+        ListGroupMembershipsExample:
+          value:
+            meta:
+              page:
+                total: 2
+                size: 100
+                number: 1
+            data:
+              - id: 774f2a35-509d-4b94-97e9-1ed49563bcb1
+                name: Group Member 1
+                description: Child RG
+                labels:
+                  env: prod
+                config:
+                  control_plane_endpoint: https://9e0353434a.us.cp0.konghq.com
+                  telemetry_endpoint: https://9e0353434a.us.tp0.konghq.com
+                  cluster_type: CLUSTER_TYPE_CONTROL_PLANE
+                  auth_type: pinned_client_certs
+                  cloud_gateway: false
+                  proxy_urls:
+                    - host: example.com
+                      port: 443
+                      protocol: https
+                created_at: 2023-03-20T22:23:45.873Z
+                updated_at: 2023-03-30T16:17:55.073Z
+              - id: e4a1917c-bb26-4aa1-9a3e-50ee366f13db
+                name: Group Member 2
+                description: Child RG
+                labels:
+                  env: prod
+                  foo: bar
+                config:
+                  control_plane_endpoint: https://05459046af.us.cp0.konghq.com
+                  telemetry_endpoint: https://05459046af.us.tp0.konghq.com
+                  cluster_type: CLUSTER_TYPE_CONTROL_PLANE
+                  auth_type: pinned_client_certs
+                  cloud_gateway: false
+                  proxy_urls:
+                    - host: example.com
+                      port: 443
+                      protocol: https
+                created_at: 2023-03-23T22:25:30.907Z
+                updated_at: 2023-03-30T16:18:12.067Z
+        UnauthorizedExample:
+          value:
+            status: 401
+            title: Unauthorized
+            instance: kong:trace:8347343766220159418
+            detail: Unauthorized
+        ForbiddenExample:
+          value:
+            status: 403
+            title: Forbidden
+            instance: kong:trace:2723154947768991354
+            detail: You do not have permission to perform this action
+        NotFoundExample:
+          value:
+            status: 404
+            title: Not Found
+            instance: kong:trace:6816496025408232265
+            detail: Not Found
+      requestBodies:
+        GroupMemebershipAdd:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  members:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+              examples:
+                Example 1:
+                  value:
+                    members:
+                      - id: 1beb9ad3-d21b-4090-b6e3-574784d1166d
+                      - id: 778a0474-687d-41af-8e51-a0488d790586
+                      - id: fa85f8e8-2e5a-496e-b6d0-4e534eaab459
+          description: Request body for adding a list of child control planes to a control
+            plane group membership.
+        GroupMembershipRemove:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  members:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+              examples:
+                Example 1:
+                  value:
+                    members:
+                      - id: 1beb9ad3-d21b-4090-b6e3-574784d1166d
+                      - id: 778a0474-687d-41af-8e51-a0488d790586
+                      - id: fa85f8e8-2e5a-496e-b6d0-4e534eaab459
+          description: Request body for removing a list of child control planes from a
+            control plane group membership.
+  meta:
+    id: spc_34195fc379134f10833bd9885c14da35
+    created: 1717804687211
+    modified: 1717805546605
